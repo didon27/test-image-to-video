@@ -13,9 +13,10 @@
       "@/utils/*": ["src/utils/*"],
       "@/types/*": ["src/types/*"],
       "@/constants/*": ["src/constants/*"],
-      "@/navigation/*": ["src/navigation/*"]
+      "@/navigation/*": ["src/navigation/*"],
+      "ffmpeg-kit-react-native": ["node_modules/kroog-ffmpeg-kit-react-native/src/index.d.ts"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "src/types/**/*.d.ts"],
-  "exclude": ["node_modules/ffmpeg-kit-react-native-alt/src/index.d.ts"]
+  "exclude": []
 }

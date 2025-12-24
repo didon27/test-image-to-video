@@ -1,6 +1,8 @@
-import { FFmpegKit, FFmpegKitConfig, ReturnCode, type Statistics } from 'ffmpeg-kit-react-native-alt';
+import { FFmpegKit, FFmpegKitConfig, ReturnCode } from 'ffmpeg-kit-react-native';
+import type { Statistics } from 'ffmpeg-kit-react-native';
 import { Paths, File, Directory } from 'expo-file-system';
 import * as ImageManipulator from 'expo-image-manipulator';
+import { Platform } from 'react-native';
 
 import { SelectedImage, ExportSettings, TransitionType } from '@/types';
 import { RESOLUTIONS, TRANSITION_DURATION, VIDEO_FPS, VIDEO_BITRATE } from '@/constants';
@@ -98,7 +100,7 @@ class VideoRendererService {
         const logs = await session.getAllLogsAsString();
         // Extract only the error part, skip the configuration info
         const errorLines = logs.split('\n');
-        const errorStart = errorLines.findIndex(line =>
+        const errorStart = errorLines.findIndex((line: string) =>
           line.includes('Error') || line.includes('error') || line.includes('Invalid') || line.includes('No such file')
         );
         const relevantLogs = errorStart >= 0
@@ -208,8 +210,9 @@ class VideoRendererService {
         filterComplex = this.buildCrossfadeFilter(imagePaths.length, width, height, imageDuration);
     }
 
-    // Use h264_videotoolbox for hardware encoding on iOS (libx264 not available in this FFmpeg build)
-    return `${inputs} -filter_complex "${filterComplex}" -map "[outv]" -c:v h264_videotoolbox -pix_fmt yuv420p -r ${VIDEO_FPS} -b:v ${VIDEO_BITRATE} -y "${outputPath}"`;
+    // Use platform-specific encoder: h264_videotoolbox for iOS, mpeg4 for Android (software encoder)
+    const encoder = Platform.OS === 'ios' ? 'h264_videotoolbox' : 'mpeg4';
+    return `${inputs} -filter_complex "${filterComplex}" -map "[outv]" -c:v ${encoder} -pix_fmt yuv420p -r ${VIDEO_FPS} -b:v ${VIDEO_BITRATE} -y "${outputPath}"`;
   }
 
   private buildCrossfadeFilter(

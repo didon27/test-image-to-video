@@ -18,6 +18,7 @@ module.exports = function (api) {
             '@/types': './src/types',
             '@/constants': './src/constants',
             '@/navigation': './src/navigation',
+            'ffmpeg-kit-react-native': 'kroog-ffmpeg-kit-react-native',
           },
         },
       ],
