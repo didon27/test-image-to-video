@@ -261,6 +261,7 @@ class VideoRendererService {
     const totalFrames = imageDuration * fps;
 
     // Ken Burns effect: zoom in or out while panning
+    // Use trim filter to limit output duration (zoompan alone doesn't stop the stream)
     for (let i = 0; i < imageCount; i++) {
       const direction = i % 2 === 0 ? 1 : -1; // Alternate zoom in/out
       const startZoom = direction === 1 ? 1 : 1.2;
@@ -270,7 +271,8 @@ class VideoRendererService {
         `[${i}:v]scale=${width * 2}:${height * 2},` +
           `zoompan=z='${startZoom}+(${endZoom}-${startZoom})*on/${totalFrames}':` +
           `x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':` +
-          `d=${totalFrames}:s=${width}x${height}:fps=${fps},setsar=1[v${i}]`
+          `d=${totalFrames}:s=${width}x${height}:fps=${fps},` +
+          `trim=duration=${imageDuration},setpts=PTS-STARTPTS,setsar=1[v${i}]`
       );
     }
 
