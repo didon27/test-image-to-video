@@ -16,6 +16,6 @@
       "@/navigation/*": ["src/navigation/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/types/**/*.d.ts", "node_modules/kroog-ffmpeg-kit-react-native/src/index.d.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "src/types/**/*.d.ts", "node_modules/ffmpeg-kit-react-native-alt/src/index.d.ts"],
   "exclude": []
 }

@@ -1,0 +1,22 @@
+diff --git a/node_modules/ffmpeg-kit-react-native-alt/android/build.gradle b/node_modules/ffmpeg-kit-react-native-alt/android/build.gradle
+index 2909280..f4b9889 100644
+--- a/node_modules/ffmpeg-kit-react-native-alt/android/build.gradle
++++ b/node_modules/ffmpeg-kit-react-native-alt/android/build.gradle
+@@ -56,6 +56,9 @@ android {
+ repositories {
+   mavenCentral()
+   google()
++  // Alternative Maven repository for ffmpeg-kit (arthenica removed original artifacts)
++  maven { url 'https://jitpack.io' }
++  maven { url 'https://repo.moizhassan.com/releases' }
+ 
+   def found = false
+   def defaultDir = null
+@@ -125,5 +128,6 @@ repositories {
+ 
+ dependencies {
+   api 'com.facebook.react:react-native:+'
+-  implementation 'com.arthenica:ffmpeg-kit-' + safePackageName(safeExtGet('ffmpegKitPackage', 'https')) + ':' + safePackageVersion(safeExtGet('ffmpegKitPackage', 'https'))
++  // Use alternative Maven source (arthenica artifacts were deleted January 2025)
++  implementation 'com.moizhassan.ffmpeg:ffmpeg-kit-16kb:6.0.0'
+ }
