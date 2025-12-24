@@ -3259,11 +3259,6 @@ fdir@^6.5.0:
   resolved "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
-ffmpeg-kit-react-native-alt@^6.0.6:
-  version "6.0.6"
-  resolved "https://registry.npmjs.org/ffmpeg-kit-react-native-alt/-/ffmpeg-kit-react-native-alt-6.0.6.tgz"
-  integrity sha512-DTq7XVnoLIn6tkjxTKz0s63JhUX6AmY0FW1kt0TaQLsdGUK/gJc9zQtdkLNm1/T/wZxyv8LQmxyVVqDmhFRGuQ==
-
 file-entry-cache@^8.0.0:
   version "8.0.0"
   resolved "https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-8.0.0.tgz"
@@ -4166,6 +4161,11 @@ kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
+kroog-ffmpeg-kit-react-native@^6.0.9:
+  version "6.0.9"
+  resolved "https://registry.npmjs.org/kroog-ffmpeg-kit-react-native/-/kroog-ffmpeg-kit-react-native-6.0.9.tgz"
+  integrity sha512-Vwx07RKaaWtVKwJbMqa2Xt0NHtU+hX8ZiYDfVY2qam3MHfk04AqYx8r+TGqX7ONFHpYyOvbFJZP+f5m2EviU0Q==
 
 lan-network@^0.1.6:
   version "0.1.7"
